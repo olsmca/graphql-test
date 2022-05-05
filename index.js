@@ -1,6 +1,6 @@
 'use strict'
 
-require('dotenv').config({path: 'docker/.env'})
+require('dotenv').config({ path: 'docker/.env' })
 const { makeExecutableSchema } = require('@graphql-tools/schema') //
 const express = require('express') // express server
 const { graphqlHTTP } = require('express-graphql') // graphql server

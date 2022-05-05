@@ -6,9 +6,58 @@ type Course{
     topic: String
 }
 
+type Student{
+    _id: ID!
+    name: String!
+    email: String!
+}
+
 type Query {
     "Return all courses"
     getCourses:[Course]
     "Return a specific course"
     getCourse(id:ID!):Course # The '!' sign defines which parameter is required
+    "Return all studens"
+    getStudents:[Student]
+    "Return a specific students"
+    getStudent(id:ID!):Student # The '!' sign defines which parameter is required
+}
+
+input CourseInput{
+    title: String!
+    teacher: String
+    description: String!
+    topic: String
+}
+
+input CourseEditInput{
+    title: String
+    teacher: String
+    description: String
+    topic: String
+}
+
+input StudentInput{
+    name: String!
+    email: String!
+}
+
+input StudentEditInput{
+    name: String
+    email: String
+}
+
+type Mutation{
+    "Creation a course"
+    createCourse(input: CourseInput!): Course
+    "Set Course"
+    editCourse(_id:ID!, input:CourseEditInput): Course
+    "Delete Course"
+    deleteCourse(_id:ID!): String
+    "Creation a student"
+    createStudent(input: StudentInput!): Student
+    "Set Curse"
+    editStudent(_id:ID!, input:StudentEditInput): Student
+    "Delete Student"
+    deleteStudent(_id:ID!): String
 }
